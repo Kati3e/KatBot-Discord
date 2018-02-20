@@ -5,7 +5,7 @@ KatBot runs on the **discord.js** libaray with **Commando** support.
 
 ## Features
 - Reaction based voting with :thumbsup:, :thumbsdown:, :shrug:
-- Reaction based polls with :one: to :keycap_ten: options
+- Reaction based polls with :two: to :keycap_ten: options
 
 ## Requirements
 npm install discord.js  
@@ -23,7 +23,7 @@ npm install discord.js-commando
 - !poll "What's your favourite food?" "Hot Dogs,Pizza,Burgers,Fruits,Veggies"  60
   - A question to be polled on
     - Must be 10 to 100 characters in length
-  - 1 to 10 polling choices, comma-separated
+  - 2 to 10 polling choices, comma-separated
     - Must be more than one choice
   - *(Optional) Length of vote in minutes*
     - Maximum of 60 minutes
