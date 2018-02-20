@@ -35,3 +35,7 @@ npm install discord.js-commando
 ## To do
 - Better permissions / roles handling
 - Add even more features!
+  - External database
+    - Save votes/polls, current reactions and winner(s)
+  - Web interface
+    - Allow votes/polls to be done on the web with an easy and fancy interface
