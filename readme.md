@@ -30,7 +30,8 @@ npm install discord.js-commando
     - defaults to 0, the poll never closes
 
 ## Example Output
-![Example Output](https://i.imgur.com/JQjCZCU.png)
+![Example Output](https://i.imgur.com/uxXg9mS.png)
 
 ## To do
 - Better permissions / roles handling
+- Add even more features!
