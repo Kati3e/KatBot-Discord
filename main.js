@@ -4,17 +4,17 @@ const config = require( path.resolve( __dirname, "config.json" ) );
 
 const client = new CommandoClient({
     commandPrefix: config.prefix,
-	unknownCommandResponse: false,
+    unknownCommandResponse: false,
     owner: config.owner,
     disableEveryone: true
 });
 
 client.registry
-	.registerDefaultTypes()
+    .registerDefaultTypes()
     .registerGroups([
         ['polls', 'Polls'],
     ])
-	.registerDefaultGroups()
+    .registerDefaultGroups()
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
