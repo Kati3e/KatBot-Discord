@@ -8,8 +8,8 @@ module.exports = class PollCommand extends Command {
             name: 'poll',
             group: 'polls',
             memberName: 'poll',
-            description: 'Creates a pool.',
-            examples: ["!poll \"What\'s your favourite food?\" \"Hot Dogs,Pizza,Burgers,Fruits,Veggies\""],
+            description: 'Creates a poll with up to 10 choices.',
+            examples: ["!poll \"What\'s your favourite food?\" \"Hot Dogs,Pizza,Burgers,Fruits,Veggies\" 10"],
 			args: [
 				{
 					key: 'question',
@@ -17,7 +17,7 @@ module.exports = class PollCommand extends Command {
 					type: 'string',
 					validate: question => {
 						if (question.length < 101 && question.length > 11) return true;
-						return 'Polling questions must be between 10 and 100 characters in length';
+						return 'Polling questions must be between 10 and 100 characters in length.';
 					}  
 				}, 
 				{
@@ -27,7 +27,7 @@ module.exports = class PollCommand extends Command {
 					validate: options => {
 						var optionsList = options.split(",");
 						if (optionsList.length > 1) return true;
-						return 'Polling options must be greater than one';
+						return 'Polling options must be greater than one.';
 					}  
 				},
 				{
@@ -37,7 +37,7 @@ module.exports = class PollCommand extends Command {
 					default: 0,
 					validate: time => {
 						if (time >= 0 && time <= 60) return true;
-						return 'Polling time must be between 0 and 60';
+						return 'Polling time must be between 0 and 60.';
 					} 
 				},
 			]
@@ -66,9 +66,9 @@ module.exports = class PollCommand extends Command {
 			embed.setFooter(`The poll has started and has no end time`);
 		}
 			
-		//msg.delete();
+		//msg.delete(); // Remove the user's command message
 
-		msg.channel.send({embed}) // For sure use a 2d array here..
+		msg.channel.send({embed}) // Definitely use a 2d array here..
 			.then(async function (message) {
 				var reactionArray = [];
 				for (var i = 0; i < optionsList.length; i++) { 

@@ -8,8 +8,8 @@ module.exports = class VoteCommand extends Command {
             name: 'vote',
             group: 'polls',
             memberName: 'vote',
-            description: 'Starts a vote.',
-            examples: ['!vote "Do you like to vote?'],
+            description: "Starts a yes/no/don't care vote.",
+            examples: ['!vote "Do you like to vote?" "I mean who doesn\'t right?!" 5'],
 			args: [
 				{
 					key: 'question',
@@ -17,7 +17,7 @@ module.exports = class VoteCommand extends Command {
 					type: 'string',
 					validate: question => {
 						if (question.length < 101 && question.length > 11) return true;
-						return 'Polling questions must be between 10 and 100 characters in length';
+						return 'Polling questions must be between 10 and 100 characters in length.';
 					}
 				},
 				{
@@ -27,7 +27,7 @@ module.exports = class VoteCommand extends Command {
 					default: ' ',
 					validate: desc => {
 						if (desc.length < 201 && desc.length > 11) return true;
-						return 'Polling questions must be between 10 and 200 characters in length';
+						return 'Polling questions must be between 10 and 200 characters in length.';
 					}
 				},
 				{
@@ -37,7 +37,7 @@ module.exports = class VoteCommand extends Command {
 					default: 0,
 					validate: time => {
 						if (time >= 0 && time <= 60) return true;
-						return 'Polling time must be between 0 and 60';
+						return 'Polling time must be between 0 and 60.';
 					} 
 				}
 			]
@@ -59,7 +59,7 @@ module.exports = class VoteCommand extends Command {
 			embed.setFooter(`The vote has started and has no end time`)
 		}
 			
-		//msg.delete(); https://stackoverflow.com/questions/36275303/javascript-how-to-find-largest-numbers-in-array-and-record-positions
+		//msg.delete(); // Remove the user's command message
 		
 		msg.channel.send({embed}) // Use a 2d array?
 			.then(async function (message) {
@@ -92,7 +92,7 @@ module.exports = class VoteCommand extends Command {
 								} else {
 									for (var i = 0; i < indexMax.length; i++) {
 										winnersText += 
-											emojiList[indexMax[i]] + " (" + reactionCountsArray[indexMax[i]] + " vote(s))\n"; // Count
+											emojiList[indexMax[i]] + " (" + reactionCountsArray[indexMax[i]] + " vote(s))\n";
 									}
 								}
 								embed.addField("**Winner(s):**", winnersText);
