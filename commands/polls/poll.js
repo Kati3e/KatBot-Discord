@@ -55,10 +55,10 @@ module.exports = class PollCommand extends Command {
 		
 		var embed = new RichEmbed()
 			.setTitle(question)
-            .setDescription(optionsText)
-            .setAuthor(msg.author.username, msg.author.displayAvatarURL)
-            .setColor(0xD53C55) // Green: 0x00AE86
-            .setTimestamp();
+			.setDescription(optionsText)
+			.setAuthor(msg.author.username, msg.author.displayAvatarURL)
+			.setColor(0xD53C55) // Green: 0x00AE86
+			.setTimestamp();
 			
 		if (time) {
 			embed.setFooter(`The poll has started and will last ${time} minute(s)`);
