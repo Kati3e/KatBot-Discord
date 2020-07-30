@@ -1,11 +1,11 @@
 ﻿const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
-const config = require( path.resolve( __dirname, "config.json" ) );
+const { prefix, owner, token } = require('./config.json');
 
 const client = new CommandoClient({
-    commandPrefix: config.prefix,
+    commandPrefix: prefix,
     unknownCommandResponse: false,
-    owner: config.owner,
+    owner: owner,
     disableEveryone: true
 });
 
@@ -23,4 +23,4 @@ client.on('ready', () => {
   client.user.setActivity(config.activity);
 });
 
-client.login(config.token);
+client.login(token);
